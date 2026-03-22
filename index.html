@@ -1,75 +1,793 @@
-Snowy Plover Press
-	•	DISPATCHES
-	•	CHAPBOOK
-	•	ABOUT
-	•	SUBMISSIONS
-Snowy Plover Dispatches
-Field Notes on the Neurotypical Species
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snowy Plover Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Caveat:wght@400;600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1a18;
+    --warm:      #f5f0e8;
+    --parchment: #ede5d0;
+    --aged:      #c9b99a;
+    --rust:      #7a4a2a;
+    --dark:      #2c2118;
+    --mid:       #6b5c48;
+    --light:     #f9f6f0;
+  }
 
-Real mail. One letter a month. An anthropologist's field notes on the strange Neurotypical species all around us.
-SUBSCRIBE — $9.95/MONTH
-PRE-PAY 6 MONTHS — $49.95
-ALSO: POETRY CHAPBOOK
-FIELD CORRESPONDENCE SERIES
-Snowy Plover Dispatches
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-Snowy Plover Dispatches is a snail mail experience from Snowy Plover Press. Each month, subscribers receive a new printed letter and extra relics from C.J. Ramos, an anthropological researcher studying the habits and social rituals of Neurotypicals.
-Smart, strange, and oddly telling, the letters are meant to be read one at a time and followed over the course of the series as a larger pattern slowly begins to emerge.
-Snowy Plover Dispatches are for anyone who might enjoy a different point of view on the strange species, the Neurotypical.
-EACH MONTHLY MAILING INCLUDES
-	•	One printed letter from C.J. Ramos
-	•	A word search or other word activity
-	•	A mystery note fragment
-	•	A bookmark or quote card with field observations
-$9.95
-per month · U.S. shipping · cancel anytime · buying as a gift? enter recipient's address at checkout
-SUBSCRIBE MONTHLY — $9.95/MONTH
-PRE-PAY 6 MONTHS — $49.95
-FIELD OBSERVATION · NO. 1
-"The neurotypical greeting sequence takes approximately forty seconds and conveys no information."
-— C.J. Ramos, Field Notes on the Neurotypical Species
-FIELD OBSERVATION · NO. 2
-"Species note: neurotypicals are suspicious of anyone who reads during a party."
-— C.J. Ramos, Field Notes on the Neurotypical Species
-NO. 1
-Disparate Kind: Neurodivergent Poets Chapbook
+  html { scroll-behavior: smooth; }
 
-Disparate Kind is a collection of poems written by neurodivergent writers from all walks of life.
-Available now on Amazon.
-BUY ON AMAZON
-SUBMIT POETRY
-Snowy Plover Press publishes an annual neurodivergent poets chapbook. We are currently reading for Chapbook No. 2.
-SUBMIT YOUR WORK
-THE PRESS
-About Snowy Plover Press
+  body {
+    background: var(--warm);
+    color: var(--ink);
+    font-family: 'IM Fell English', serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-Snowy Plover Press is an independent literary press focused on distinctive projects, poetry chapbooks, and print work published for nonconforming minds.
-We publish work that emerges from a neurodivergent perspective: poetry, correspondence, field notes, non-fiction, and fiction.
-The press takes its name from the snowy plover, a small shorebird that camouflages itself in plain site, always at the margin of the crowd, but close enough to observe us. A serious researcher, the snowy plover has simply never bothered to publish, until now.
-Please direct all correspondence to the editor:
-· · ·
-editor [at] snowyploverpress [dot] com
-OPEN CALLS
-Submissions
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.5;
+  }
 
-Snowy Plover Press welcomes writing that emerges from a neurodivergent perspective. We celebrate the fruits of nonconforming minds.
-Disparate Kind: Chapbook No. 2
-OPEN FOR SUBMISSIONS
-Poetry by neurodivergent writers. No restrictions on form, subject, or length. We are looking for work with a distinct point of view.
-Send up to five poems using this Form. Include a brief bio and any relevant context you'd like us to have.
-SUBMIT HERE
-Coming Soon: Buttered Noodles for the Neurodivergent Brain
-OPEN FOR SUBMISSIONS
-Send short musings, anecdotes, and stories about living neurodivergently.
-Contribute to a unique non-fiction publication, coming soon.
- 
-SUBMIT HERE
-Snowy Plover Press
-Publishing for nonconforming minds.
-	•	DISPATCHES
-	•	CHAPBOOK
-	•	ABOUT
-	•	SUBMISSIONS
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--dark);
+    border-bottom: 2px solid var(--aged);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
 
+  .nav-brand {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    color: var(--parchment);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
 
-editor [at] snowyploverpress [dot] com
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    color: var(--aged);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--parchment); }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem 4rem;
+    position: relative;
+    text-align: center;
+    background: var(--parchment);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(122,74,42,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(201,185,154,0.08) 0%, transparent 60%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(44,33,24,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44,33,24,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Special Elite', monospace;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--mid);
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-rule {
+    width: 120px;
+    height: 1px;
+    background: var(--aged);
+    margin: 0 auto 2.5rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-description {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: var(--dark);
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-cta {
+    animation: fadeUp 0.8s 0.5s ease both;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    background: var(--rust);
+    color: var(--parchment);
+    border: 1px solid var(--rust);
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--rust);
+    border-color: var(--rust);
+  }
+
+  .btn-secondary {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    background: transparent;
+    color: var(--aged);
+    border: 1px solid var(--aged);
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    color: var(--parchment);
+    border-color: var(--parchment);
+  }
+
+  section {
+    padding: 6rem 2rem;
+  }
+
+  .section-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--aged);
+  }
+
+  .section-title {
+    font-family: 'Special Elite', monospace;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-rule {
+    width: 80px;
+    height: 2px;
+    background: var(--rust);
+    margin-bottom: 2rem;
+  }
+
+  #dispatches {
+    background: var(--light);
+    border-top: 1px solid var(--parchment);
+    border-bottom: 1px solid var(--parchment);
+  }
+
+  .dispatches-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .dispatches-description p {
+    margin-bottom: 1.2rem;
+    color: var(--dark);
+  }
+
+  .dispatches-description p:first-child {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .field-card {
+    background: var(--dark);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .field-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,185,154,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,185,154,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .field-card-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .field-card-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--aged);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .field-card-quote {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--parchment);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .field-card-attr {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    color: var(--aged);
+    letter-spacing: 0.1em;
+  }
+
+  .what-you-get {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--parchment);
+  }
+
+  .what-you-get h3 {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 1rem;
+  }
+
+  .what-you-get ul {
+    list-style: none;
+  }
+
+  .what-you-get li {
+    font-family: 'IM Fell English', serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    padding: 0.4rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .what-you-get li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-family: 'Special Elite', monospace;
+  }
+
+  .price-block {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--parchment);
+    background: var(--warm);
+    text-align: center;
+  }
+
+  .price-amount {
+    font-family: 'Special Elite', monospace;
+    font-size: 2rem;
+    color: var(--dark);
+    display: block;
+  }
+
+  .price-desc {
+    font-family: 'IM Fell English', serif;
+    font-size: 0.85rem;
+    color: var(--mid);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  #chapbook {
+    background: var(--warm);
+  }
+
+  .chapbook-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .chapbook-description p {
+    margin-bottom: 1.2rem;
+    color: var(--dark);
+  }
+
+  .chapbook-sidebar {
+    padding: 2rem;
+    border: 1px solid var(--aged);
+    background: var(--parchment);
+  }
+
+  .chapbook-sidebar h3 {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 1rem;
+  }
+
+  .chapbook-sidebar p {
+    font-size: 0.9rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  #about {
+    background: var(--parchment);
+    border-top: 1px solid var(--aged);
+    border-bottom: 1px solid var(--aged);
+  }
+
+  .about-text p {
+    margin-bottom: 1.2rem;
+    max-width: 640px;
+  }
+
+  #submissions {
+    background: var(--warm);
+  }
+
+  .submissions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .sub-card {
+    padding: 2rem;
+    border: 1px solid var(--parchment);
+    background: var(--light);
+  }
+
+  .sub-card h3 {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .sub-card-status {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .sub-card p {
+    font-size: 0.95rem;
+    color: var(--mid);
+    margin-bottom: 1.2rem;
+  }
+
+  footer {
+    background: var(--dark);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 2px solid var(--aged);
+  }
+
+  .footer-brand {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.9rem;
+    color: var(--parchment);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--parchment);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links a {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--aged);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--parchment); }
+
+  .footer-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-social a {
+    color: var(--parchment);
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover { color: var(--parchment); }
+
+  .footer-email {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    color: var(--mid);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-email a {
+    color: var(--aged);
+    text-decoration: none;
+  }
+
+  .ornament {
+    text-align: center;
+    color: var(--aged);
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    margin: 2rem 0;
+    font-family: 'Special Elite', monospace;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 680px) {
+    .dispatches-grid,
+    .chapbook-grid,
+    .submissions-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .nav-links { display: none; }
+    .hero-title { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nav-brand">Snowy Plover Press</a>
+  <ul class="nav-links">
+    <li><a href="#dispatches">Dispatches</a></li>
+    <li><a href="#chapbook">Chapbook</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#submissions">Submissions</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <h1 class="hero-title">Snowy Plover<br>Dispatches</h1>
+    <p class="hero-sub">Field Notes on the Neurotypical Species</p>
+    <div class="hero-rule"></div>
+    <p class="hero-description">
+      Real mail. One letter a month. An anthropologist's<br> field notes on the strange Neurotypical species all around us.
+    </p>
+    <div class="hero-cta">
+      <a href="https://buy.stripe.com/14A14fbzX6IYaoP87s8IU01" target="_blank" class="btn-primary">Subscribe — $9.95/month</a>
+      <a href="https://buy.stripe.com/fZu3cncE19VagNd1J48IU02" target="_blank" class="btn-secondary" style="color: var(--dark); border-color: var(--mid);">Pre-pay 6 Months — $49.95</a>
+      <a href="#chapbook" class="btn-secondary" style="color: var(--dark); border-color: var(--mid);">Also: Poetry Chapbook</a>
+    </div>
+  </div>
+</section>
+
+<section id="dispatches">
+  <div class="section-inner">
+    <div class="section-label">Field Correspondence Series</div>
+    <h2 class="section-title">Snowy Plover Dispatches</h2>
+    <div class="section-rule"></div>
+
+    <div class="dispatches-grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="dispatches-description">
+        <p>
+          Snowy Plover Dispatches is a snail mail experience from Snowy Plover Press.
+          Each month, subscribers receive a new printed letter and extra relics from C.J. Ramos,
+          an anthropological researcher studying the habits and social rituals of Neurotypicals.
+        </p>
+        <p>
+          Smart, strange, and oddly telling, the letters are meant to be read one
+          at a time and followed over the course of the series as a larger
+          pattern slowly begins to emerge.
+        </p>
+        <p>
+          Snowy Plover Dispatches are for anyone who might enjoy a different point of view on the strange species, the Neurotypical.
+        </p>
+
+        <div class="what-you-get">
+          <h3>Each monthly mailing includes</h3>
+          <ul>
+            <li>One printed letter from C.J. Ramos</li>
+            <li>A word search or other word activity</li>
+            <li>A mystery note fragment</li>
+            <li>A bookmark or quote card with field observations</li>
+          </ul>
+        </div>
+
+        <div class="price-block">
+          <span class="price-amount">$9.95</span>
+          <span class="price-desc">per month · U.S. shipping · cancel anytime · buying as a gift? enter recipient's address at checkout</span>
+          <a href="https://buy.stripe.com/14A14fbzX6IYaoP87s8IU01" target="_blank" class="btn-primary">Subscribe Monthly — $9.95/month</a>
+          <a href="https://buy.stripe.com/fZu3cncE19VagNd1J48IU02" target="_blank" class="btn-secondary" style="color: var(--dark); border-color: var(--mid); margin-top: 0.75rem; display: block; text-align: center;">Pre-pay 6 Months — $49.95</a>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <div class="field-card">
+          <div class="field-card-inner">
+            <span class="field-card-label">Field Observation · No. 1</span>
+            <p class="field-card-quote">
+              "The neurotypical greeting sequence takes approximately forty seconds and conveys no information."
+            </p>
+            <p class="field-card-attr">— C.J. Ramos, Field Notes on the Neurotypical Species</p>
+          </div>
+        </div>
+
+        <div class="field-card" style="margin-top: 1rem; background: var(--parchment);">
+          <div class="field-card-inner">
+            <span class="field-card-label" style="color: var(--mid);">Field Observation · No. 2</span>
+            <p class="field-card-quote" style="color: var(--dark);">
+              "Species note: neurotypicals are suspicious of anyone who reads during a party."
+            </p>
+            <p class="field-card-attr" style="color: var(--mid);">— C.J. Ramos, Field Notes on the Neurotypical Species</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="chapbook">
+  <div class="section-inner">
+    <div class="section-label">No. 1</div>
+    <h2 class="section-title">Disparate Kind:<br>Neurodivergent Poets Chapbook</h2>
+    <div class="section-rule"></div>
+
+    <div class="chapbook-grid">
+      <div class="chapbook-description">
+        <p>
+          <em>Disparate Kind</em> is a collection of poems written by
+          neurodivergent writers from all walks of life.
+        </p>
+        <p>Available now on Amazon.</p>
+        <div style="margin-top: 2rem;">
+          <a href="https://www.amazon.com/dp/0966923219" class="btn-primary" target="_blank">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="chapbook-sidebar">
+        <h3>Submit poetry</h3>
+        <p>
+          Snowy Plover Press publishes an annual neurodivergent poets chapbook.
+          We are currently reading for Chapbook No. 2.
+        </p>
+        <a href="#submissions" class="btn-secondary" style="font-size: 0.7rem; padding: 0.6rem 1.2rem; color: var(--dark); border-color: var(--mid);">Submit Your Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">The Press</div>
+    <h2 class="section-title">About Snowy Plover Press</h2>
+    <div class="section-rule"></div>
+
+    <div class="about-text">
+      <p>
+        Snowy Plover Press is an independent literary press focused on
+        distinctive projects, poetry chapbooks, and print work
+        published for nonconforming minds.
+      </p>
+      <p>
+        We publish work that emerges from a neurodivergent perspective:
+        poetry, correspondence, field notes, non-fiction, and fiction.
+      </p>
+      <p>
+        The press takes its name from the snowy plover, a small shorebird
+        that camouflages itself in plain site, always at the margin of the crowd, but close enough to observe us.
+        A serious researcher,
+        the snowy plover has simply never bothered to publish, until now.
+      </p>
+      <p>Please direct all correspondence to the editor:</p>
+    </div>
+
+    <div class="ornament" style="margin-top: 3rem;">· · ·</div>
+
+    <p style="font-family: 'Special Elite', monospace; font-size: 0.8rem; color: var(--mid); letter-spacing: 0.05em;">
+      editor [at] snowyploverpress [dot] com
+    </p>
+  </div>
+</section>
+
+<section id="submissions">
+  <div class="section-inner">
+    <div class="section-label">Open Calls</div>
+    <h2 class="section-title">Submissions</h2>
+    <div class="section-rule"></div>
+
+    <p style="margin-bottom: 2rem; max-width: 580px;">
+      Snowy Plover Press welcomes writing that emerges from a neurodivergent
+      perspective. We celebrate the fruits of nonconforming minds.
+    </p>
+
+    <div class="submissions-grid">
+      <div class="sub-card">
+        <h3>Disparate Kind: Chapbook No. 2</h3>
+        <span class="sub-card-status">Open for Submissions</span>
+        <p>
+          Poetry by neurodivergent writers. No restrictions on form, subject,
+          or length. We are looking for work with a distinct point of view.
+        </p>
+        <p>
+          Send up to five poems using this Form.
+          Include a brief bio and any relevant context you'd like us to have.
+        </p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_7wfaLaSvHJkBCW2G3cJQgh6fEHknOJdOD3hhWGgthmuFig/viewform" class="btn-primary" style="font-size: 0.75rem; padding: 0.7rem 1.5rem;">Submit Here</a>
+      </div>
+
+      <div class="sub-card">
+        <h3>Coming Soon: Buttered Noodles for the Neurodivergent Brain</h3>
+        <span class="sub-card-status" style="color: var(--mid);">Open for submissions</span>
+        <p>Send short musings, anecdotes, and stories about living neurodivergently.</p>
+        <p>Contribute to a unique non-fiction publication, coming soon.</p>
+        <p>&nbsp;</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_7wfaLaSvHJkBCW2G3cJQgh6fEHknOJdOD3hhWGgthmuFig/viewform" class="btn-primary" style="font-size: 0.75rem; padding: 0.7rem 1.5rem;">Submit Here</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-brand">Snowy Plover Press</p>
+  <p class="footer-tagline">Publishing for nonconforming minds.</p>
+  <ul class="footer-links">
+    <li><a href="#dispatches">Dispatches</a></li>
+    <li><a href="#chapbook">Chapbook</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#submissions">Submissions</a></li>
+  </ul>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/snowyploverpress" target="_blank" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@snowyploverpress" target="_blank" aria-label="TikTok">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+    </a>
+  </div>
+  <p class="footer-email" style="margin-top: 1rem;">editor [at] snowyploverpress [dot] com</p>
+</footer>
+
+</body>
+</html>
