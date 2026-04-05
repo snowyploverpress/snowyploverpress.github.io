@@ -41,6 +41,38 @@
     opacity: 0.5;
   }
 
+  .starburst-wrap {
+    position: absolute;
+    top: 5rem;
+    right: 5%;
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+    display: block;
+    animation: fadeUp 0.8s 0.7s ease both;
+  }
+
+  .starburst-wrap svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #starburst-poly {
+    animation: slowspin 20s linear infinite;
+    transform-origin: 100px 100px;
+  }
+
+  .starburst-wrap:hover #starburst-poly {
+    animation-play-state: paused;
+  }
+
+  @keyframes slowspin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -86,7 +118,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 4rem 2rem 2rem;
+    padding: 6rem 2rem 2rem;
     position: relative;
     text-align: center;
     background: var(--parchment);
@@ -584,6 +616,12 @@
 </nav>
 
 <section class="hero" id="home">
+
+  <a href="https://buy.stripe.com/9B628j1Zn4AQ8gHbjE8IU03" target="_blank" class="starburst-wrap" id="starburst-badge">
+    <svg id="starburst-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    </svg>
+  </a>
+
   <div class="hero-inner">
     <p class="hero-eyebrow">Do you identify as neurodivergent? This snail mail club is for you.</p>
     <h1 class="hero-title">Snowy Plover<br>Dispatches</h1>
@@ -591,7 +629,7 @@
     <div class="hero-rule"></div>
     <p class="hero-description" style="font-family: 'IM Fell English', serif; font-style: normal; font-size: clamp(1.05rem, 2.5vw, 1.3rem); line-height: 1.65; margin-bottom: 1.25rem;">
       C.J. Ramos is a neurodivergent anthropological researcher.<br>
-      He has spent years secretly studying a baffling species: the Neurotypical.<br>
+      He has spent years quietly studying a baffling species: the Neurotypical.<br>
       He documents their rituals. He draws conclusions.<br>
       Now he is looking for friends to send his dispatches to.
     </p>
@@ -618,7 +656,7 @@
     <div style="margin-top: 1.5rem; animation: fadeUp 0.8s 0.6s ease both;">
       <a href="#chapbook" style="display: inline-block; border: 1px solid var(--aged); padding: 0.75rem 1.75rem; text-decoration: none; background: rgba(255,255,255,0.35);">
         <span style="font-family: 'Special Elite', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid);">Also from Snowy Plover Press</span><br>
-        <span style="font-family: 'IM Fell English', serif; font-style: italic; font-size: 1rem; color: var(--dark);">There's a poetry chapbook! →</span>
+        <span style="font-family: 'IM Fell English', serif; font-style: italic; font-size: 1rem; color: var(--dark);">There's also a poetry chapbook! →</span>
       </a>
     </div>
 
@@ -815,5 +853,45 @@
   <p class="footer-email" style="margin-top: 1rem;">editor [at] snowyploverpress [dot] com</p>
 </footer>
 
+<script>
+  (function() {
+    const svg = document.getElementById('starburst-svg');
+    const ns = 'http://www.w3.org/2000/svg';
+    const cx = 100, cy = 100, outerR = 95, innerR = 62, points = 16;
+    let pts = [];
+    for (let i = 0; i < points * 2; i++) {
+      const angle = (Math.PI / points) * i - Math.PI / 2;
+      const r = i % 2 === 0 ? outerR : innerR;
+      pts.push((cx + r * Math.cos(angle)).toFixed(2) + ',' + (cy + r * Math.sin(angle)).toFixed(2));
+    }
+
+    // Spinning polygon in its own group
+    const g = document.createElementNS(ns, 'g');
+    g.setAttribute('id', 'starburst-poly');
+    const poly = document.createElementNS(ns, 'polygon');
+    poly.setAttribute('points', pts.join(' '));
+    poly.setAttribute('fill', '#7a4a2a');
+    g.appendChild(poly);
+    svg.appendChild(g);
+
+    // Static text group — does NOT spin
+    const lines = ['Dispatch No. 1', 'Launching', 'May 2026', '↓ Sign up ↓'];
+    const sizes = [11, 11, 13, 10];
+    const yStart = 85;
+    const lineH = 16;
+    lines.forEach((line, i) => {
+      const t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', '100');
+      t.setAttribute('y', yStart + i * lineH);
+      t.setAttribute('text-anchor', 'middle');
+      t.setAttribute('fill', '#fff');
+      t.setAttribute('font-family', 'Special Elite, monospace');
+      t.setAttribute('font-size', sizes[i]);
+      t.setAttribute('letter-spacing', '0.5');
+      t.textContent = line;
+      svg.appendChild(t);
+    });
+  })();
+</script>
 </body>
 </html>
